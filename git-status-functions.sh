@@ -1,7 +1,7 @@
 #! /bin/zsh
 
 function is_git_repo {
-  ls -a ./.git 2> /dev/null
+  git rev-parse --git-dir 2> /dev/null
 }
 
 function git_curr_branch {
