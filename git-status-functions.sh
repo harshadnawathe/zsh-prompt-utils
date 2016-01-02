@@ -50,10 +50,10 @@ function untracked_files_status {
 
 function git_status {
 
-  N_MODIFIED=$(git_modified_files_count)
-  N_DELETED=$(git_deleted_files_count)
-  N_UNTRACKED=$(git_untracked_files_count)
-  N_STAGED=$(git_staged_files_count)
+  N_MODIFIED=${$(git_modified_files_count)// /}
+  N_DELETED=${$(git_deleted_files_count)// /}
+  N_UNTRACKED=${$(git_untracked_files_count)// /}
+  N_STAGED=${$(git_staged_files_count)// /}
 
   if [[ -n $(is_git_repo) ]]; then
     GIT_BRANCH=$(git_curr_branch)
