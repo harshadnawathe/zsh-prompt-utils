@@ -1,14 +1,12 @@
 #!/bin/zsh
 
-source colors-definations.sh
+ZSH_PROMPT_UTILS_ROOT=~/.zsh-prompt-utils
 
-source battery-status-functions.sh
+source $ZSH_PROMPT_UTILS_ROOT/colors-definations.sh
 
-source git-status-functions.sh
+source $ZSH_PROMPT_UTILS_ROOT/battery-status-functions.sh
 
-function battery_status {
- echo "$(charging_status)$(battery_percentage_colored)"
-}
+source $ZSH_PROMPT_UTILS_ROOT/git-status-functions.sh
 
 setopt promptsubst
 export PS1='$(battery_status) [%1d] $(git_status) ~> '

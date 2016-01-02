@@ -1,11 +1,11 @@
 #! /bin/zsh
 
 function battery_percentage {
-  $(uname)/battery-percentage.sh
+  $ZSH_PROMPT_UTILS_ROOT/$(uname)/battery-percentage.sh
 }
 
 function external_power_connected {
-  $(uname)/external-power-connected.sh
+  $ZSH_PROMPT_UTILS_ROOT/$(uname)/external-power-connected.sh
 }
 
 function battery_percentage_colored {
@@ -28,5 +28,10 @@ function charging_status {
     echo '\033[48;5;196m\xF0\x9F\x94\x8B \033[m'
   fi
 }
+
+function battery_status {
+ echo "$(charging_status)$(battery_percentage_colored)"
+}
+
 
 
