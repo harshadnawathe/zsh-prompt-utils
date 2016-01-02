@@ -1,15 +1,14 @@
 #!/bin/zsh
 
-ZSH_PROMPT_UTILS_ROOT=~/.zsh-prompt-utils
 
-source $ZSH_PROMPT_UTILS_ROOT/colors-definations.sh
+source colors-definations.sh
 
 function battery_percentage {
-  $ZSH_PROMPT_UTILS_ROOT/$(uname)/battery-percentage.sh
+  $(uname)/battery-percentage.sh
 }
 
 function external_power_connected {
-  $ZSH_PROMPT_UTILS_ROOT/$(uname)/external-power-connected.sh
+  $(uname)/external-power-connected.sh
 }
 
 function is_git_repo {
