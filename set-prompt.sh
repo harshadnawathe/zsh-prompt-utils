@@ -1,15 +1,7 @@
 #!/bin/zsh
 
-
 source colors-definations.sh
-
-function battery_percentage {
-  $(uname)/battery-percentage.sh
-}
-
-function external_power_connected {
-  $(uname)/external-power-connected.sh
-}
+source battery-status-functions.sh
 
 function is_git_repo {
   ls -a ./.git 2> /dev/null
