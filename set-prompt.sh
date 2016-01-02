@@ -1,11 +1,15 @@
 #!/bin/zsh
 
+ZSH_PROMPT_UTILS_ROOT=~/.zsh-prompt-utils
+
+source $ZSH_PROMPT_UTILS_ROOT/colors-definations.sh
+
 function battery_percentage {
-  $(uname)/ battery-percentage.sh
+  $ZSH_PROMPT_UTILS_ROOT/$(uname)/battery-percentage.sh
 }
 
 function external_power_connected {
-  $(uname)/external-power-connected.sh
+  $ZSH_PROMPT_UTILS_ROOT/$(uname)/external-power-connected.sh
 }
 
 function is_git_repo {
@@ -31,14 +35,6 @@ function git_deleted_files_count {
 function git_staged_files_count {
   git status --porcelain 2> /dev/null | grep -e"^[ADM]." | wc -l
 }
-
-
-GREEN='\033[38;5;40m'
-YELLOW='\033[38;5;226m'
-ORANGE='\033[38;5;208m'
-RED='\033[38;5;196m'
-AQUA='\033[38;5;51m'
-COLOR_RESET='\033[m'
 
 function battery_percentage_colored {
   BATTERY_PERC=$(battery_percentage)
