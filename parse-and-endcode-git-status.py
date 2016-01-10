@@ -30,10 +30,12 @@ def repo_status(file_counts):
 	return format_info(color_if_not_empty, (40,208,196,226), format_if_not_empty,('●','○','✗','?'), file_counts) 
 
 def branch_info(git_status_txt):
-	match_branch_status = re.compile(r'##\s(.*)\.\.\.(?:.*)(?:\[(?:ahead (\d+))?[,\s]{0,2}(?:behind (\d+))?\])?')
-	match = re.search(match_branch_status, git_status_txt)
+	match_branch_status = re.compile(r'##\s(.*)\.\.\..*\s\[(?:ahead (\d+))?(?:,\s)?(?:behind (\d+))?\]')
+	match = re.match(match_branch_status, git_status_txt)
 	if match is not None:
 		return match.groups()
+	elif git_status_txt.split('\n')[0] == '## Initial commit on master':
+		return ('master', None, None)
 	else:
 		return (None,None,None)
 
